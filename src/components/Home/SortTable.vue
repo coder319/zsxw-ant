@@ -1,6 +1,6 @@
 <template>
   <div>
-    <a-card body-style="padding:0">
+    <a-card :body-style="{padding:0}">
       <div id="sort-table">
         <div id="caption" class="text">作品分类</div>
         <div class="sorts text" :style="{cursor:'pointer'}" v-for="item in category" @click="toRoute('/sort/' + item.id)">

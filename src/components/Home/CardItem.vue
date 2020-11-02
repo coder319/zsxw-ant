@@ -15,7 +15,7 @@
       }
     },
     props:{
-      categoryId:String
+      categoryId:''
     },
     methods:{
       toNovel(title,id) {
