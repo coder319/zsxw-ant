@@ -73,6 +73,13 @@ export default {
     }).then(res => {
       this.category = res.data.data
     })
+    //账号初始化
+    if(this.$store.state.userState===-1) {
+      let user = this.$global.accountInit()
+      this.$store.commit("updateUserState",1);
+      this.$store.commit("updateUser",user);
+      // console.log(user)
+    }
   },
   components: {
     Nav,

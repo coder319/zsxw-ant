@@ -63,9 +63,11 @@
       }
     },
     methods: {
+      // 路由跳转
       routeTo(path) {
         this.$router.push(path)
       },
+      // 获取验证码
       getVcode() {
         axios({
           url:this.apiHeader + '/api/verificationCode'
@@ -74,6 +76,7 @@
           this.vCodeUuid=res.data.data.uuid
         })
       },
+      // 提交登陆信息
       commitLogin() {
 
         axios.defaults.headers['Content-Type'] = 'application/json'
@@ -90,23 +93,32 @@
         }).then(res => {
           if(res.data.code===1)
           {
+            //登录信息更新到VueX状态中
             this.$store.commit("updateUserState",res.data.code);
             this.$store.commit("updateUser",res.data.data);
+            // 用户信息存入localStorage
+            let user = this.$store.state.user
+            window.localStorage.setItem("user",JSON.stringify(user))
+            // for(let key in user) {
+            //   window.localStorage.setItem(key,user[key])
+            // }
             this.$router.back()
           }
           else{
-            alert('login error')
+            //登陆失败报错，并重新获取验证码
+            alert('login error，error code : '+ res.data.code)
+            axios({
+              url:this.apiHeader + '/api/verificationCode'
+            }).then(res => {
+              this.vCodeImg=res.data.data.code
+              this.vCodeUuid=res.data.data.uuid
+            })
           }
-          axios({
-            url:this.apiHeader + '/api/verificationCode'
-          }).then(res => {
-            this.vCodeImg=res.data.data.code
-            this.vCodeUuid=res.data.data.uuid
-          })
+
         })
       }
     },
-    mounted() {
+    created() {
       axios({
         url:this.apiHeader + '/api/verificationCode'
       }).then(res => {

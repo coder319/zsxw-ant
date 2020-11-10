@@ -63,7 +63,10 @@
     },
     created() {
       if(this.$store.state.userState===-1) {
-        this.$router.push('/login')
+        let user = this.$global.accountInit()
+        this.$store.commit("updateUserState",1);
+        this.$store.commit("updateUser",user);
+        // console.log(user)
       }
     },
     components:{
