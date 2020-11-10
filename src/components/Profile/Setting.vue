@@ -46,7 +46,7 @@
       <dl>
         <dt style="float: left">简介:</dt>
         <dd>
-          <a-textarea :style="{width:'400px'}" :auto-size="{minRows: 3, maxRows: 6}" v-model="user.introduce"/>
+          <a-textarea :style="{width:'300px'}" :auto-size="{minRows: 3, maxRows: 6}" v-model="user.introduce"/>
         </dd>
       </dl>
     </form>
