@@ -26,7 +26,7 @@
             </a-tab-pane>
             <a-tab-pane key="2" tab="评论">
               <a-button v-if="this.$store.state.userState === -1" @click="toPage('/login')">登陆后发表评论</a-button>
-              <CreateComment v-else :novel-id=id></CreateComment>
+              <CreateComment v-else :novel-id=id @comments="f5(comments)"></CreateComment>
               <a-divider />
               <Comment v-for="item in comments" :contents=item></Comment>
             </a-tab-pane>
@@ -71,6 +71,13 @@
       }
     },
     methods:{
+      f5(comments) {
+        this.comments.splice(0,this.comments.length)
+        for(let item of comments){
+          console.log(item);
+          this.comments.push(item)
+        }
+      },
       toChapter(item) {
         let path = '/chapter/' + item.title + '/' + item.id
         this.$router.push(path)
@@ -80,6 +87,14 @@
       },
       goBack() {
         this.$router.back()
+      }
+    },
+    created() {
+      if(this.$store.state.userState===-1) {
+        let user = this.$global.accountInit()
+        this.$store.commit("updateUserState",1);
+        this.$store.commit("updateUser",user);
+        // console.log(user)
       }
     },
     mounted() {
@@ -108,13 +123,10 @@
       }).then(res => {
         this.list = res.data.data.list
       })
-
+      //获取评论列表
       axios({
         url:this.apiHeader + '/api/comment/listCommentByNovelIdOrderByUp',
         method:'post',
-        // params:{
-        //
-        // },
         data:JSON.stringify({
           "novelId":this.id,
           "currentPage": 1,

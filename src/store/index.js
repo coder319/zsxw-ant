@@ -6,8 +6,9 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     // apiHost:'http://192.168.43.100',
-    apiHost:'http://118.31.229.85',
-    apiPost:':9999',
+    // apiHost:'http://118.31.229.85',
+    apiHost:'http://127.0.0.1',
+    apiPost:':5000',
     userState:-1,
     user:{
       email: String,

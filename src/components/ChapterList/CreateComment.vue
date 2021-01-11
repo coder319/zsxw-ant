@@ -54,6 +54,22 @@
           if(res.data.code === 1){
             this.commentContent=''
             alert('评论成功')
+            //刷新评论列表
+            axios({
+              url:this.apiHeader + '/api/comment/listCommentByNovelIdOrderByUp',
+              method:'post',
+              data:JSON.stringify({
+                "novelId":this.id,
+                "currentPage": 1,
+                "orderKey": "update_time",
+                "pageSize": 10,
+                "searchCount": false
+              })
+            }).then(res => {
+              console.log(res.data.data.list);
+              let comments = res.data.data.list
+              this.$emit('comments',comments)
+            })
           }
         })
       }

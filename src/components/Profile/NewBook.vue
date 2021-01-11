@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <a-button type="primary" @click="showDrawer"> <a-icon type="plus" /> 发表新的小说 </a-button>
+  <div id="main">
+    <a-button id="btn" type="primary" @click="showDrawer"> <a-icon type="plus" /> 发表新的小说 </a-button>
     <a-drawer
             title="填写小说相关信息"
             :height="620"
@@ -142,3 +142,14 @@
     }
   };
 </script>
+
+<style>
+  #main{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  #btn{
+    margin: 50px 0;
+  }
+</style>

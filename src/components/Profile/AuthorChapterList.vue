@@ -15,17 +15,19 @@
     },
     props:{
       // 当前折叠板的小说ID
-      bookId:-1
+      bookId:{
+        type:Number,
+        default:-1
+      }
     },
-    // created() {
-    //   if(this.bookId == -1) {
-    //     alert('小说id错误！')
-    //   }
-    //   else{
-    //     this.list = this.$http.getChapterById(this.bookId)
-    //     console.log(this.list)
-    //   }
-    // }
+    created() {
+      if(this.bookId == -1) {
+        alert('小说id错误！')
+      }
+      else{
+        this.list = this.$http.getChapterById(this.bookId)
+      }
+    }
   }
 </script>
 
