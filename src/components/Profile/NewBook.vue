@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <a-button type="primary" @click="showDrawer"> <a-icon type="plus" /> 发表新的小说 </a-button>
+  <div id="main">
+    <a-button id="btn" type="primary" @click="showDrawer"> <a-icon type="plus" /> 发表新的小说 </a-button>
     <a-drawer
             title="填写小说相关信息"
             :height="620"
@@ -29,7 +29,7 @@
                       v-model="form.categoryId"
                       placeholder="选择小说类型"
               >
-                <a-select-option v-for="item in category" :value=item.id>
+                <a-select-option v-for="(item,index) in category" :key="index" :value=item.id>
                   {{item.categoryName}}
                 </a-select-option>
               </a-select>
@@ -62,10 +62,10 @@
         }"
       >
         <a-button :style="{ marginRight: '8px' }" @click="onClose">
-          Cancel
+          取消
         </a-button>
         <a-button type="primary" @click="submit">
-          Submit
+          发布新小说
         </a-button>
       </div>
     </a-drawer>
@@ -110,9 +110,24 @@
           data:JSON.stringify(this.form)
         }).then(res => {
           // console.log(res.data.code);
-          
+          console.log('submit success!')
+          this.visible = false
+          this.f5()
         })
-        this.visible = false
+      },
+      //刷新我的小说面板列表
+      f5() {
+        console.log('f5!!');
+        axios({
+          url:this.$store.state.apiHost + this.$store.state.apiPost + '/api/novel/author/get',
+          method:'get',
+          headers: {
+            "x-access-token":this.$store.state.user.xaccessToken
+          },
+        }).then(res => {
+          let myBooks = res.data.data
+          this.$emit('f5',myBooks)
+        })
       }
     },
     created() {
@@ -127,3 +142,14 @@
     }
   };
 </script>
+
+<style>
+  #main{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  #btn{
+    margin: 50px 0;
+  }
+</style>
