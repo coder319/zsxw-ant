@@ -46,22 +46,22 @@
 
   #active{
     background-color: #ebfbf9;
-    height: 90px;
+    height: 45px;
     display: flex;
-    line-height: 90px;
+    line-height: 45px;
   }
   #active div{
     flex: 1;
   }
 
   #noactive{
-    margin: 5px 0;
-    height: 30px;
+    margin: 2px 0;
+    height: 15px;
   }
 
   img{
-    margin: 15px;
-    height: 60px;
-    width: 40px;
+    margin: 7px;
+    height: 30px;
+    width: 20px;
   }
 </style>

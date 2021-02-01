@@ -28,7 +28,7 @@
 <style scoped>
 
   img {
-    height: 300px;
+    height: 150px;
     width: 100%;
   }
   .el-carousel-item{

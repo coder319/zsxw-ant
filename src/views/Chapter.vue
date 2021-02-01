@@ -6,12 +6,12 @@
     <a-layout-content>
       <a-card>
         <a-row type="flex" justify="center">
-          <a-col :span="6">
+          <a-col :span="20">
             <h1>{{book.title}}</h1>
           </a-col>
         </a-row>
         <a-row>
-          <a-col :span="18" :offset="3">
+          <a-col :span="20" :offset="2">
             <p v-for="item in content">{{item}}</p>
           </a-col>
         </a-row>

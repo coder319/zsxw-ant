@@ -8,10 +8,10 @@
               @back="goBack"
       />
     </a-layout-header>
-    <a-layout-content :style="{margin:'3% 10%'}">
+    <a-layout-content :style="">
       <a-row>
         <a-card>
-          <a-col :span="20" :offset="2">
+          <a-col :span="24" :offset="0">
             <Book :book=book></Book>
           </a-col>
         </a-card>
@@ -20,7 +20,7 @@
         <a-card >
           <a-tabs default-active-key="1" >
             <a-tab-pane key="1" tab="目录">
-              <a-col v-for="item in list" :span="8" >
+              <a-col v-for="item in list" :span="24" >
                 <p :style="{cursor:'pointer'}" @click="toChapter(item)">{{item.title}}</p>
               </a-col>
             </a-tab-pane>

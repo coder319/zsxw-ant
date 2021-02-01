@@ -39,7 +39,7 @@
 <style scoped>
   #ranking-list{
     margin-left: 2px;
-    height: 300px;
+    height: 150px;
   }
 
 

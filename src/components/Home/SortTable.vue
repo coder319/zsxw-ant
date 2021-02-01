@@ -28,7 +28,7 @@
 <style scoped>
 
   #sort-table{
-    height: 300px;
+    height: 150px;
 
     display: flex;
     flex-wrap: wrap;
@@ -38,9 +38,9 @@
     background-color: #ebfbf9;
     margin: 0 0.5%;
     width: 49%;
-    height: 60px;
+    height: 30px;
     text-align: center;
-    line-height: 60px;
+    line-height: 30px;
   }
   .sorts:nth-child(4n-1){
     background-color: #fff;
@@ -53,12 +53,12 @@
 
   #caption{
     background-color: #ebfbf9;
-    font-size: 25px;
-    letter-spacing: 7px;
+    font-size: 12px;
+    letter-spacing: 3px;
 
     width: 100%;
-    height: 60px;
+    height: 30px;
     text-align: center;
-    line-height: 60px;
+    line-height: 30px;
   }
 </style>

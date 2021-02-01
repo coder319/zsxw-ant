@@ -1,6 +1,6 @@
 <template>
   <div id="container">
-    <a-card :body-style="{padding:'10px'}">
+    <a-card :body-style="{padding:'5px'}">
       <div id="cardBody">
         <div id="cover">
           <img :style="{cursor:'pointer'}" @click=toChapterList() :src=book.pic />
@@ -50,7 +50,7 @@
     display: flex;
   }
   #massage{
-    height: 202px;
+    height: 101px;
     /*min-width: 300px;*/
 
     overflow: hidden;
@@ -62,7 +62,7 @@
     width: 100%;
   }
   #cover img{
-    width: 160px;
-    margin: 5px;
+    width: 80px;
+    margin: 2px;
   }
 </style>
