@@ -1,7 +1,7 @@
 <template>
 <a-layout id="home">
   <a-layout-header :style="{ position: 'fixed', zIndex: 1, width: '100%',backgroundColor: '#fff',borderBottom: '1px solid #e8e8e8' }">
-    <Nav :nav-items=navItems :default-key=defaultKey>
+    <Nav :nav-items="navItems" :default-key="defaultKey">
       <a-input-search placeholder="输入小说名或作者名进行搜索" @search="onSearch" />
     </Nav>
   </a-layout-header>
@@ -18,7 +18,7 @@
       </a-col>
     </a-row>
     <a-row>
-      <a-col v-for="item in category" :md="6">
+      <a-col v-for="(item,index) in category" :key="index" :md="6">
         <div style="margin: 20px 10px ">
           <a-card :title=item.categoryName>
             <span :style="{cursor:'pointer'}" slot="extra" @click="toRoute('/sort/' + item.id)">更多</span>

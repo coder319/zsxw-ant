@@ -29,7 +29,7 @@
                       v-model="form.categoryId"
                       placeholder="选择小说类型"
               >
-                <a-select-option v-for="item in category" :value=item.id>
+                <a-select-option v-for="(item,index) in category" :key="index" :value=item.id>
                   {{item.categoryName}}
                 </a-select-option>
               </a-select>

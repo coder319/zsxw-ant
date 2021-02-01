@@ -20,7 +20,7 @@
         <a-card >
           <a-tabs default-active-key="1" >
             <a-tab-pane key="1" tab="目录">
-              <a-col v-for="item in list" :span="8" >
+              <a-col v-for="(item,index) in list" :key="index" :span="8" >
                 <p :style="{cursor:'pointer'}" @click="toChapter(item)">{{item.title}}</p>
               </a-col>
             </a-tab-pane>
@@ -28,7 +28,7 @@
               <a-button v-if="this.$store.state.userState === -1" @click="toPage('/login')">登陆后发表评论</a-button>
               <CreateComment v-else :novel-id=id @comments="f5(comments)"></CreateComment>
               <a-divider />
-              <Comment v-for="item in comments" :contents=item></Comment>
+              <Comment v-for="(item,index) in comments" :key="index" :contents=item></Comment>
             </a-tab-pane>
           </a-tabs>
         </a-card>

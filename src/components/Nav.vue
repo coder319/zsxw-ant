@@ -7,7 +7,7 @@
         <a-menu
                 theme="light"
                 mode="horizontal"
-                :default-selected-keys=defaultKey
+                :default-selected-keys="defaultKey"
                 :style="{ lineHeight: '64px',height: '64px' }"
         >
           <a-menu-item v-for="item in navItems" :key=item.path @click="routeTo(item.path)">{{item.text}}</a-menu-item>
@@ -17,14 +17,14 @@
       <slot></slot>
     </a-col>
     <a-col :md="{span:'2',offset:'6'}">
-      <a-avatar v-if="this.$store.state.userState===-1"
+      <a-avatar v-if="$store.state.userState===-1"
                 :size="50" type="circle"
                 @click="routeTo('/login')"
                 :style="{margin: '7px 0 7px 0',cursor: 'pointer'}">
         <a-icon slot="icon" type="user" />
       </a-avatar>
       <a-avatar v-else
-                :src=this.$store.state.user.headImg
+                :src="headImg"
                 :size="50" type="circle"
                 @click="routeTo('/profile')"
                 :style="{margin: '7px 0 7px 0',cursor: 'pointer'}"
@@ -49,6 +49,14 @@
           return []
         }
       }
+    },
+    data() {
+      return {
+        headImg: ''
+      }
+    },
+    created() {
+      this.headImg = this.$store.state.user.headImg
     },
     methods: {
       routeTo(path) {
