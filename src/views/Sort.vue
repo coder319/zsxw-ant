@@ -6,7 +6,7 @@
     </a-layout-header>
     <a-layout-content>
       <a-row>
-        <div :style="{margin: '10px 0'}">
+        <div :style="{margin: '10px 5px'}">
           <a-radio-group v-model="categoryId" @change="onChangeC">
             <a-radio-button value="0000">
               全部
@@ -14,6 +14,11 @@
             <a-radio-button v-for="item in category" :value=item.id>
               {{item.categoryName}}
             </a-radio-button>
+
+
+            <!--这个地方我想就一排，超过隐藏但是我不知道哪里加这几个地方有的加不了overflow有的加了没用，然后我觉得这个页面也差不多了-->
+
+
           </a-radio-group>
         </div>
       </a-row>

@@ -5,6 +5,11 @@
       <a-input-search placeholder="输入小说名或作者名进行搜索" @search="onSearch" />
     </Nav>
   </a-layout-header>
+
+  <!--↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑-->
+<!--这里我不知道怎么把他们弄一排去，第一个我还不能把它变窄一些，width和linewidth什么的试了没什么用-->
+<!--我还没找到全局样式，或者说我没找到home的边距，两边离屏幕太远了，这些改了我觉得主页就这样了-->
+
   <a-layout-content :style="{ padding: '15px 50px', marginTop: '64px',backgroundColor: '#fff' }">
     <a-row :gutter="20" style="margin: 10px 0">
       <a-col :md="4">
@@ -19,8 +24,8 @@
     </a-row>
     <a-row>
       <a-col v-for="(item,index) in category" :key="index" :md="6">
-        <div style="margin: 20px 10px ">
-          <a-card :title=item.categoryName>
+        <div style="margin: 10px 5px ">
+          <a-card :title=item.categoryName :style="{height:'50px',fontSize:'16px'}">
             <span :style="{cursor:'pointer'}" slot="extra" @click="toRoute('/sort/' + item.id)">更多</span>
             <CardItem :categoryId=item.id></CardItem>
           </a-card>
