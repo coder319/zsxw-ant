@@ -4,8 +4,9 @@
       <a-page-header @back="goBack" title="个人主页" :ghost="false">
       </a-page-header>
     </a-layout-header>
-    <a-layout-content :style="{minHeight:'768px',backgroundColor: '#fff',margin:'1% 10%'}">
-      <a-col :md="18" :offset="3">
+
+    <a-layout-content :style="{minHeight:'670px',backgroundColor: '#fff'}">
+      <a-col :md="18">
         <a-tabs
                 type="line"
                 tab-position="top"
@@ -18,9 +19,9 @@
           <a-tab-pane key="page2" tab="修改信息" >
             <Setting></Setting>
           </a-tab-pane>
-          <a-tab-pane key="page3" tab="收藏夹" >收藏夹</a-tab-pane>
-          <a-tab-pane key="page4" tab="阅读记录" >阅读记录</a-tab-pane>
-          <a-tab-pane key="page5" tab="我的评论" >我的评论</a-tab-pane>
+          <a-tab-pane class="pl" key="page3" tab="收藏夹" >收藏夹</a-tab-pane>
+          <a-tab-pane class="pl" key="page4" tab="阅读记录" >阅读记录</a-tab-pane>
+          <a-tab-pane class="pl" key="page5" tab="我的评论" >我的评论</a-tab-pane>
 
           <a-tab-pane v-if="this.$store.state.user.role === 'user'" key="page6" tab="成为作者" >成为作者</a-tab-pane>
           <a-tab-pane v-else-if="this.$store.state.user.role === 'author'" key="page6" tab="我的小说" >
@@ -78,4 +79,7 @@
 </script>
 
 <style scoped>
+  .pl{
+    padding-left: 5%;
+  }
 </style>

@@ -70,6 +70,9 @@
 </script>
 
 <style scoped>
+  #wrap{
+    padding-left: 10%;
+  }
   dl{
     line-height: 20px;
     /*max-height: 30px;*/

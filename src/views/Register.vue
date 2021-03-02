@@ -2,7 +2,7 @@
   <a-layout >
     <a-layout-content class='login'>
       <a-col :md="{span: '6', offset: '9'}" :sm="{span:'10',offset:'7'}">
-        <div :style="{paddingTop: '90px',minWidth:'316px'}">
+        <div :style="{paddingTop: '60px',minWidth:'316px'}">
           <a-card class="box-card">
             <div id="logo" slot="title">
               <img src="../assets/img/logo.jpg"
@@ -125,7 +125,7 @@
 
 <style scoped>
   .login{
-    background-color: #E4E7ED;
+    background-color: #fff;
     position: absolute;
     top: 0;
     left: 0;
@@ -158,5 +158,8 @@
   }
   .el-button{
     margin: 5px 30px;
+  }
+  .box-card{
+    border: 0;
   }
 </style>

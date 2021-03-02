@@ -6,12 +6,11 @@
     </Nav>
   </a-layout-header>
 
-    <a-input-search placeholder="输入小说名或作者名进行搜索" @search="onSearch" />
-
   <a-layout-content :style="{ padding: '15px 10px', marginTop: '64px',backgroundColor: '#fff' }">
+      <a-input-search placeholder="输入小说名或作者名进行搜索" @search="onSearch" class="search" />
     <a-row :gutter="20" style="margin: 10px 0">
       <a-col :md="4">
-        <SortTable :category=category></SortTable>
+        <SortTable :category=category class="sort_table"></SortTable>
       </a-col>
       <a-col :md="14">
         <PictureDisplay></PictureDisplay>
@@ -23,9 +22,9 @@
     <a-row>
       <a-col v-for="(item,index) in category" :key="index" :md="6">
         <div style="margin: 10px 5px ">
-          <a-card :title=item.categoryName :style="{height:'50px',fontSize:'16px'}">
+          <a-card :title="item.categoryName" :style="{fontSize:'16px'}">
             <span :style="{cursor:'pointer'}" slot="extra" @click="toRoute('/sort/' + item.id)">更多</span>
-            <CardItem :categoryId=item.id></CardItem>
+            <CardItem :categoryId=item.id ></CardItem>
           </a-card>
         </div>
       </a-col>
@@ -94,6 +93,19 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="less" scoped>
+.search{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: .35s;
+    width: 70%;
+}
+    .search:focus-within{
+        width: 85%;
+        transition: .35s;
+    }
+  .sort_table{
+    margin:0 0  12px 0;
+  }
 </style>

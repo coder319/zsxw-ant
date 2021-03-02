@@ -148,6 +148,7 @@
     display: flex;
     justify-content: center;
     width: 100%;
+    padding-left: 5%;
   }
   #btn{
     margin: 50px 0;

@@ -139,4 +139,7 @@
 /deep/.ant-layout-content {
   min-height:calc(100vh - 58px - 96px);
 }
+  .ant-tabs{
+    min-height: calc(100vh - 68px - 300px);
+  }
 </style>

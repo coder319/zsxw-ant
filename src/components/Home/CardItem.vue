@@ -1,33 +1,26 @@
-<!--
- * @Description: 
+<!-- * @Description:
  * @Author: Wangtr
  * @Date: 2020-09-10 20:52:32
  * @LastEditTime: 2021-03-02 16:56:56
  * @LastEditors: Wangtr
- * @Reference: 
--->
+ * @Reference: -->
 <template>
   <div>
     <!--<p v-for="book in books" :style="{cursor:'pointer'}" @click="toNovel(book.title,book.id)">{{book.title}}   {{book.author}}</p>-->
-    <Homebook></Homebook>
-
-    <!--我现在的想法是这个卡片里面放6本书，每本一个图一个名字，我现在这样好像不行看看这么搞，还有复用我是直接粘贴6个嘛-->
-    <!--我现在的想法是这个卡片里面放6本书，每本一个图一个名字，我现在这样好像不行看看这么搞，还有复用我是直接粘贴6个嘛-->
-    <!--我现在的想法是这个卡片里面放6本书，每本一个图一个名字，我现在这样好像不行看看这么搞，还有复用我是直接粘贴6个嘛-->
-    <!--怕你看不见多写几遍-->
+    <Homebook v-for="book in books" :data="book" class="book"></Homebook>
 
   </div>
 </template>
 
 <script>
-  /*import axios from "axios";*/
+  import axios from "axios";
   import Homebook from "./Homebook";
 
   export default {
     name: "CardItem",
     data() {
       return{
-        /*books:[]*/
+        books:[]
       }
     },
     props:{
@@ -39,7 +32,6 @@
       }*/
     },
     mounted() {
-      /*
       axios({
         url:this.$store.state.apiHost + this.$store.state.apiPost + '/api/novel/listByCategory',
         method:'post',
@@ -52,12 +44,15 @@
         }
       }).then( res => {
         this.books = res.data.data.list
-      })*/
+      })
     },
     components:{Homebook}
   }
 </script>
 
-<style scoped>
-
+<style lang="less" scoped>
+.book{
+  float: left;
+  margin: 8px 12px;
+}
 </style>

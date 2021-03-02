@@ -3,22 +3,22 @@
     <a-layout>
       <a-layout-content>
         <a-row class="index-item-border index-header">
-          <a-col :md="{span: '4', offset:'2'}">
-            <div :style="{height: '110px'}">
+          <a-col :xs="{span: '4', offset:'2'}" :md="{span: '4', offset:'1'}">
+            <div :style="{height: '90px'}">
               <a-avatar :src=this.$store.state.user.headImg
                         class="index-header-item"
-                        :size="80">
+                        :size="60">
               </a-avatar>
             </div>
           </a-col>
-          <a-col :md="6">
+          <a-col :xs="{span: '6', offset:'1'}" :md="6">
             <div id="userName">
               {{this.$store.state.user.username}}
-              <a-tag size="mini">Lv.{{this.$store.state.user.level}}</a-tag>
+              <a-tag class="wei" size="mini">Lv.{{this.$store.state.user.level}}</a-tag>
             </div>
           </a-col>
-          <a-col :md="{span: '4', offset:'6'}">
-            <div :style="{height: '110px'}">
+          <a-col :xs="{span: '4', offset:'6'}" :md="{span: '4', offset:'6'}">
+            <div :style="{height: '90px'}">
               <a-progress class="index-header-item"
                           :width=size
                           type="circle"
@@ -28,21 +28,24 @@
             </div>
           </a-col>
         </a-row>
+
+
         <a-row class="index-item-carousel index-item-margin">
-          <a-col :md="24">
+          <a-col :xs="24" :md="24">
             <a-carousel :autoplay='true' >
               <div v-for="(item,n) in cover" :key="n">
-                <img height="300px" width="100%"  :src=item />
+                <img height="200px" width="100%"  :src=item />
               </div>
             </a-carousel>
-            <a-col :md="{span:'6',offset:'9'}" >
+            <a-col :xs="{span:'8',offset:'9'}" :md="{span:'6',offset:'9'}" >
               <div class="index-item-carousel-text"
-              @click="toFavorite">查看完整收藏夹</div>
-              </a-col>
+                   @click="toFavorite">查看完整收藏夹</div>
+            </a-col>
           </a-col>
         </a-row>
+
         <a-row>
-          <a-col class="index-item-border" :md="8">
+          <a-col class="index-item-border" :xs="8" :md="8">
             <div class="index-item-margin">
               <div >账户余额</div>
               <div><span class="text">0</span>书币</div>
@@ -50,7 +53,7 @@
               <div class="index-link">充值</div>
             </div>
           </a-col>
-          <a-col class="index-item-border" :md="8">
+          <a-col class="index-item-border" :xs="8" :md="8">
             <div class="index-item-margin">
               <div>阅读记录</div>
               <div><span class="text">0</span>本小说</div>
@@ -61,7 +64,7 @@
               </div>
             </div>
           </a-col>
-          <a-col class="index-item-border" :md="8">
+          <a-col class="index-item-border" :xs="8" :md="8">
             <div class="index-item-margin">
               <div >推荐票</div>
               <div><span class="text">{{this.$store.state.user.recommend}}</span>张</div>
@@ -85,7 +88,7 @@
     name: "Index",
     data() {
       return {
-        size:80,
+        size:60,
         toPageHis:'page4',
         toPageFav:'page3',
         cover:[pic1,pic2,pic3,pic4]
@@ -124,18 +127,22 @@
   .ant-row{
     background-color: #fff;
   }
+  .wei{
+    position: relative;
+    transform: translateY(-5px);
+  }
   .text{
-    font-size: 40px;
+    font-size: 30px;
     margin: 0 5px;
   }
   .index-item-margin{
-    margin: 30px 10%;
+
   }
   .index-item-border{
     border: 1px solid #E4E7ED;
   }
   .index-header{
-    height: 110px;
+    height: 90px;
   }
   .index-header-item{
     margin: 15px 0;
@@ -149,7 +156,7 @@
     color: purple;
   }
   .index-item-carousel{
-    height: 300px;
+    height: 225px;
   }
   .index-item-carousel-text{
     cursor: pointer;
@@ -159,13 +166,11 @@
     color: purple;
   }
   #userName{
-    height: 110px;
-    font-size: 45px;
-    line-height: 110px;
+    height: 90px;
+    font-size: 30px;
+    line-height: 90px;
     text-align: center;
+    min-width: 174px;
   }
 
-  .el-row{
-    margin: 15px 0;
-  }
 </style>

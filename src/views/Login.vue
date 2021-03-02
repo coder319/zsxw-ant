@@ -131,7 +131,7 @@
 
 <style scoped>
   .login{
-    background-color: #E4E7ED;
+    background-color: #fff;
     position: absolute;
     top: 0;
     left: 0;
@@ -164,5 +164,8 @@
   }
   .el-button{
     margin: 5px 30px;
+  }
+  .box-card{
+    border: 0;
   }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <a-card  id="ranking-list">
-    <h2 style="text-align: center">热门排行</h2>
+    <h2 class="card_h2">热门排行</h2>
     <RankingItem v-for="book in books" :book-name=book.title :book-cover=book.pic></RankingItem>
   </a-card>
 </template>
@@ -39,8 +39,11 @@
 <style scoped>
   #ranking-list{
     margin-left: 2px;
-    height: 150px;
+    /*height: 180px;*/
   }
-
+.card_h2{
+  text-align: center;
+  margin: 0;
+}
 
 </style>

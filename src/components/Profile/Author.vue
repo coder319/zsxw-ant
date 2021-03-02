@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div >
     <h2 v-if="myBooks.length<1">暂无小说</h2>
 <!--    <a-collapse v-else :destroyInactivePanel="true">-->
     <a-collapse v-else>
@@ -88,5 +88,7 @@
 </script>
 
 <style scoped>
-
+h2{
+  padding-left: 5%;
+}
 </style>
