@@ -1,3 +1,11 @@
+<!--
+ * @Description: 
+ * @Author: Wangtr
+ * @Date: 2020-09-10 20:52:32
+ * @LastEditTime: 2021-03-02 16:56:56
+ * @LastEditors: Wangtr
+ * @Reference: 
+-->
 <template>
   <div>
     <!--<p v-for="book in books" :style="{cursor:'pointer'}" @click="toNovel(book.title,book.id)">{{book.title}}   {{book.author}}</p>-->
@@ -46,7 +54,7 @@
         this.books = res.data.data.list
       })*/
     },
-    components:Homebook
+    components:{Homebook}
   }
 </script>
 
