@@ -2,15 +2,13 @@
 <a-layout id="home">
   <a-layout-header :style="{ position: 'fixed', zIndex: 1, width: '100%',backgroundColor: '#fff',borderBottom: '1px solid #e8e8e8' }">
     <Nav :nav-items="navItems" :default-key="defaultKey">
-      <a-input-search placeholder="输入小说名或作者名进行搜索" @search="onSearch" />
+
     </Nav>
   </a-layout-header>
 
-  <!--↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑-->
-<!--这里我不知道怎么把他们弄一排去，第一个我还不能把它变窄一些，width和linewidth什么的试了没什么用-->
-<!--我还没找到全局样式，或者说我没找到home的边距，两边离屏幕太远了，这些改了我觉得主页就这样了-->
+    <a-input-search placeholder="输入小说名或作者名进行搜索" @search="onSearch" />
 
-  <a-layout-content :style="{ padding: '15px 50px', marginTop: '64px',backgroundColor: '#fff' }">
+  <a-layout-content :style="{ padding: '15px 10px', marginTop: '64px',backgroundColor: '#fff' }">
     <a-row :gutter="20" style="margin: 10px 0">
       <a-col :md="4">
         <SortTable :category=category></SortTable>
