@@ -1,3 +1,11 @@
+<!--
+ * @Description: 
+ * @Author: Wangtr
+ * @Date: 2020-09-07 15:47:21
+ * @LastEditTime: 2021-03-02 17:08:22
+ * @LastEditors: Wangtr
+ * @Reference: 
+-->
 <template>
   <a-layout>
     <a-layout-header :style="{width: '100%',backgroundColor: '#fff',borderBottom: '1px solid #e8e8e8' }">
@@ -12,7 +20,7 @@
         </a-row>
         <a-row>
           <a-col :span="20" :offset="2">
-            <p v-for="item in content">{{item}}</p>
+            <p v-for="(item,i) in content" :key="i">{{item}}</p>
           </a-col>
         </a-row>
       </a-card>

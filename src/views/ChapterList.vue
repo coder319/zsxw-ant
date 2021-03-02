@@ -8,7 +8,7 @@
               @back="goBack"
       />
     </a-layout-header>
-    <a-layout-content :style="">
+    <a-layout-content>
       <a-row>
         <a-card>
           <a-col :span="24" :offset="0">
@@ -20,7 +20,7 @@
         <a-card >
           <a-tabs default-active-key="1" >
             <a-tab-pane key="1" tab="目录">
-              <a-col v-for="item in list" :span="24" >
+              <a-col v-for="item in list" :key="item" :span="24" >
                 <p :style="{cursor:'pointer'}" @click="toChapter(item)">{{item.title}}</p>
               </a-col>
             </a-tab-pane>
@@ -28,7 +28,7 @@
               <a-button v-if="this.$store.state.userState === -1" @click="toPage('/login')">登陆后发表评论</a-button>
               <CreateComment v-else :novel-id=id></CreateComment>
               <a-divider />
-              <Comment v-for="item in comments" :contents=item></Comment>
+              <Comment v-for="item in comments" :key="item" :contents=item></Comment>
             </a-tab-pane>
           </a-tabs>
         </a-card>
@@ -135,6 +135,8 @@
   }
 </script>
 
-<style scoped>
-
+<style lang="less" scoped>
+/deep/.ant-layout-content {
+  min-height:calc(100vh - 58px - 96px);
+}
 </style>
